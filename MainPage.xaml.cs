@@ -30,7 +30,7 @@ namespace Theatre
         private async void ButtonReserveSeat(object sender, EventArgs e)
         {
             var seat = await DisplayPromptAsync("Enter Seat Number", "Enter seat number: ");
-
+            // Testing no meta data
             if (seat != null)
             {
                 for (int i = 0; i < seatingChart.GetLength(0); i++)
