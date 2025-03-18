@@ -122,7 +122,7 @@ namespace Theatre
             //a comment
         }
 
-        //Assign to Team 2 Member
+        //Assigned to Danielle Daye
         private void ButtonCancelReservation(object sender, EventArgs e)
         {
              private async void ButtonCancelReservation(object sender, EventArgs e)
