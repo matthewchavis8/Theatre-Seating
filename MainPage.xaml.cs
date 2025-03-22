@@ -191,28 +191,24 @@ namespace Theatre
         //Assigned to Danielle Daye
         private void ButtonCancelReservation(object sender, EventArgs e)
         {
-             private async void ButtonCancelReservation(object sender, EventArgs e)
+            var seat = await DisplayPromptAsync("Enter Seat Number", "Enter seat number: ");
+           
+            if (seat != null)
             {
-                var seat = await DisplayPromptAsync("Enter Seat Number", "Enter seat number: ");
-               
-                if (seat != null)
+                for (int i = 0; i < seatingChart.GetLength(0); i++)
                 {
-                    for (int i = 0; i < seatingChart.GetLength(0); i++)
+                    for (int j = 0; j < seatingChart.GetLength(1); j++)
                     {
-                        for (int j = 0; j < seatingChart.GetLength(1); j++)
+                    if (seatingChart[i, j].Name == seat)
                         {
-                        if (seatingChart[i, j].Name == seat)
-                            {
-                            seatingChart[i, j].Reserved = true;
-                            await DisplayAlert("Successfully Cancelled", "Your seat was cancelled successfully!", "Ok");
-                            RefreshSeating();
-                            return;
-                            }
+                        seatingChart[i, j].Reserved = true;
+                        await DisplayAlert("Successfully Cancelled", "Your seat was cancelled successfully!", "Ok");
+                        RefreshSeating();
+                        return;
                         }
                     }
-                    await DisplayAlert("Error", "Seat was not found.", "Ok");
                 }
-            
+                await DisplayAlert("Error", "Seat was not found.", "Ok");
             }
         }
 
